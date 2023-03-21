@@ -20,7 +20,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] GameObject PlayerListItemPrefab;
     [SerializeField] GameObject startGameButton;
     [SerializeField] TMP_Text nickText;
-    public int levelNumber = 1;
 
     string[] randomNick = {"Corno", "Robson", "Cavala", "Ribs", "Naruto", "Hacker", "Noia"};
 
@@ -56,7 +55,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        MenuManager.Instance.OpenMenu("FrontPage");
+        MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
         // if(PhotonNetwork.NickName == null || PhotonNetwork.NickName == "" || (PhotonNetwork.NickName != null && PhotonNetwork.NickName.Length < 3))
         //     PhotonNetwork.NickName = randomNick[Random.Range(0, randomNick.Length-1)] + Random.Range(0, 1000).ToString("000");
@@ -117,13 +116,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {   
-        
-        PhotonNetwork.LoadLevel(levelNumber);
-    }
-    
-    public void AturScene(int modul)
-    {
-        levelNumber = modul;
+        PhotonNetwork.LoadLevel(1);
     }
 
     public void LeaveRoom()
